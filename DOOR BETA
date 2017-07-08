@@ -72,9 +72,6 @@ MFRC522 mfrc522(SS_PIN, RST_PIN);   // Create MFRC522 instance
 #define SALT2 "RANDOM2"
 
 
-
-
-
 // Helper routine to dump a byte array as hex values to Serial
 void dump_byte_array_hex(byte *buffer, byte bufferSize) {
   for (byte i = 0; i < bufferSize; ++i) {
@@ -84,9 +81,6 @@ void dump_byte_array_hex(byte *buffer, byte bufferSize) {
 }
 
 
-
-
-
 // Helper routine to dump a byte array to Serial
 void dump_byte_array(byte *buffer, byte bufferSize) {
   for (byte i = 0; i < bufferSize; ++i) {
@@ -94,10 +88,6 @@ void dump_byte_array(byte *buffer, byte bufferSize) {
     Serial.print(buffer[i]);
   }
 }
-
-
-
-
 
 // UID string
 String uid_string(byte *buffer, byte bufferSize) {
@@ -110,25 +100,6 @@ String uid_string(byte *buffer, byte bufferSize) {
   return uid;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // UID hashing
 String uid_hash(byte *buffer, byte bufferSize) {
   if(bufferSize < AUTHORIZED_LENGTH)
@@ -138,18 +109,11 @@ String uid_hash(byte *buffer, byte bufferSize) {
 }
 
 
-
-
-
 // Inifinite loop - Reset self
 void resetSelf() {
   PRINTDEBUG("Reseting");
   while(1);
 }
-
-
-
-
 
 // Function to connect WiFi
 void connectWifi(const char* ssid, const char* password) {
@@ -172,10 +136,6 @@ void connectWifi(const char* ssid, const char* password) {
   PRINTDEBUG("IP address:");
   PRINTDEBUG(WiFi.localIP());
 }
-
-
-
-
 
 //// Helper routine to check authorization without WiFi connection
 //bool check_auth(byte *buffer, byte bufferSize) {
@@ -276,9 +236,6 @@ bool check_auth(byte *buffer, byte bufferSize) {
 }
 
 
-
-
-
 ////////////////////////// SETUP //////////////////////////////////////////////////////
 void setup() {
 
@@ -321,10 +278,6 @@ void setup() {
   connectWifi(ssid, password);          // Try to connect WiFi for 30 seconds
   delay(10);
 }
-
-
-
-
 
 ////////////////////////// LOOP //////////////////////////////////////////////////////
 void loop() {
